@@ -12,4 +12,11 @@ public static class ServiceExtensions
             .AddCatalogModule(configuration)
             .AddOrderingMoodule(configuration);
     }
+
+    public static void UseDecoupledModules(this IApplicationBuilder app)
+    {
+        app.UseBasketModule()
+            .UseCatalogModule()
+            .UseOrderingModule();
+    }
 }
