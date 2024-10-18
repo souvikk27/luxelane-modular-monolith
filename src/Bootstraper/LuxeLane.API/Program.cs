@@ -1,7 +1,10 @@
+using LuxeLane.API.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.RegisterDecoupledModules(builder.Configuration);
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
@@ -15,7 +18,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 
 app.MapControllers();
 
