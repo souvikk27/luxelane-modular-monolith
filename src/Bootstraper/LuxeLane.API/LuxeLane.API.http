@@ -1,0 +1,6 @@
+@LuxeLane.API_HostAddress = http://localhost:5201
+
+GET {{LuxeLane.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
