@@ -1,0 +1,16 @@
+services:
+  luxelane-db:
+    image: postgres:14.1
+    container_name: luxelane-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Sou@2345
+      POSTGRES_USER: postgres
+      POSTGRES_DB: LuxeLaneDb
+    ports:
+      - "5432:5432"
+    volumes:
+      - luxelane-db-data:/var/lib/postgresql/data
+
+volumes:
+  luxelane-db-data:
