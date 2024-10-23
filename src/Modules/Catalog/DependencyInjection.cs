@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shared.Data;
 
 namespace Catalog;
 
@@ -14,6 +13,8 @@ public static class DependencyInjection
         {
             options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
         });
+        
+        services.AddScoped<IDataSeeder, CatalogSeeder>();
         return services;
     }
 
