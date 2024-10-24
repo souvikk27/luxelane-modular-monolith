@@ -6,6 +6,7 @@ global using Catalog.Products.Models;
 global using Catalog.Seed;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Shared.CQRS;
 global using Shared.Data;
 global using Shared.Data.Seed;
 global using Shared.DDD;

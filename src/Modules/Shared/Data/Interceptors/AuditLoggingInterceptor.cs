@@ -1,11 +1,4 @@
-﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Logging;
-using Shared.DDD;
-
-namespace Shared.Data.Interceptors;
+﻿namespace Shared.Data.Interceptors;
 
 public class AuditLoggingInterceptor : SaveChangesInterceptor
 {

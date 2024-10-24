@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Products\Features\Queries\" />
     <Folder Include="Products\Models\" />
   </ItemGroup>
 
