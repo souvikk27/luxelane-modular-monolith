@@ -14,16 +14,13 @@ public static class DependencyInjection
     {
         services.AddHttpContextAccessor();
 
-        services.AddMediatR(config =>
-        {
-            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        });
+        services.AddMediatR(config => { config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()); });
 
         services.AddScoped<ISaveChangesInterceptor, AuditLoggingInterceptor>();
-       
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventInterceptor>();
 
         var connectionString = configuration.GetConnectionString("SqlConnection")
-            ?? throw new ArgumentNullException("Invalid connectionString in appsettings.json");
+                               ?? throw new ArgumentNullException(nameof(configuration));
 
         services.AddDbContext<CatalogDbContext>((provider, options) =>
         {
@@ -39,7 +36,7 @@ public static class DependencyInjection
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<CatalogDbContext>());
 
         services.AddSingleton<ISqlConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
-        
+
         services.AddScoped<IDataSeeder, CatalogSeeder>();
         return services;
     }
