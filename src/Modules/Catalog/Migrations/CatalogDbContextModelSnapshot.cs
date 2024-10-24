@@ -40,8 +40,8 @@ namespace Catalog.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text")
                         .HasColumnName("created_by");
 
                     b.Property<string>("Description")
@@ -60,8 +60,8 @@ namespace Catalog.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_modified_at");
 
-                    b.Property<Guid?>("LastModifiedBy")
-                        .HasColumnType("uuid")
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text")
                         .HasColumnName("last_modified_by");
 
                     b.Property<string>("Name")
